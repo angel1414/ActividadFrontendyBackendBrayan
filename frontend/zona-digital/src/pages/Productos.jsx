@@ -16,7 +16,7 @@ const Productos = () => {
   const navigate = useNavigate();
 
   const cargarProductos = () => {
-    fetch("http://localhost:4000/api/products", {
+    fetch("https://frontend-backend-wr79.onrender.com/api/products", {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -39,8 +39,8 @@ const Productos = () => {
 
   const handleSubmit = async () => {
     const url = editandoId
-      ? `http://localhost:4000/api/products/${editandoId}`
-      : "http://localhost:4000/api/products";
+      ? `https://frontend-backend-wr79.onrender.com/api/products/${editandoId}`
+      : "https://frontend-backend-wr79.onrender.com/api/products";
 
     const method = editandoId ? "PUT" : "POST";
 
@@ -62,7 +62,7 @@ const Productos = () => {
   };
 
   const eliminarProducto = async (id) => {
-    await fetch(`http://localhost:4000/api/products/${id}`, {
+    await fetch(`https://frontend-backend-wr79.onrender.com/api/products/${id}`, {
       method: "DELETE",
       credentials: "include",
     });

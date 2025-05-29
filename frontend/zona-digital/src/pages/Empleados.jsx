@@ -21,7 +21,7 @@ const Empleados = () => {
   const navigate = useNavigate();
 
   const cargarEmpleados = () => {
-    fetch("http://localhost:4000/api/employee", {
+    fetch("https://frontend-backend-wr79.onrender.com/api/employee", {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -41,8 +41,8 @@ const Empleados = () => {
 
   const handleSubmit = async () => {
     const url = editandoId
-      ? `http://localhost:4000/api/employee/${editandoId}`
-      : "http://localhost:4000/api/employee";
+      ? `https://frontend-backend-wr79.onrender.com/api/employee/${editandoId}`
+      : "https://frontend-backend-wr79.onrender.com/api/employee";
 
     const method = editandoId ? "PUT" : "POST";
 
@@ -75,7 +75,7 @@ const Empleados = () => {
   };
 
   const eliminarEmpleado = async (id) => {
-    await fetch(`http://localhost:4000/api/employee/${id}`, {
+    await fetch(`https://frontend-backend-wr79.onrender.com/api/employee/${id}`, {
       method: "DELETE",
       credentials: "include",
     });
@@ -89,7 +89,7 @@ const Empleados = () => {
       birthday: emp.birthday?.slice(0, 10) || "",
       email: emp.email || "",
       address: emp.address || "",
-      password: emp.password || "", // ✅ ahora se muestra la contraseña
+      password: emp.password || "", 
       hireDate: emp.hireDate || "",
       telephone: emp.telephone || "",
       dui: emp.dui || "",
@@ -143,7 +143,7 @@ const Empleados = () => {
             <span>{emp.issNumber}</span>
             <span>{emp.address}</span>
             <span>{emp.hireDate}</span>
-            <span>{emp.password}</span> {/* ✅ visible en tabla */}
+            <span>{emp.password}</span> 
             <span className="botones">
               <button className="editar" onClick={() => iniciarEdicion(emp)}>Editar</button>
               <button className="eliminar" onClick={() => eliminarEmpleado(emp._id)}>Eliminar</button>

@@ -20,7 +20,7 @@ const app = express();
 // Middleware de CORS
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "http://actividad-frontendy-backend-brayan.vercel.app",
     credentials: true
   })
 );

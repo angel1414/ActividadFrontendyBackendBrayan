@@ -16,7 +16,7 @@ const Sucursales = () => {
   const navigate = useNavigate();
 
   const cargarSucursales = () => {
-    fetch("http://localhost:4000/api/branches", {
+    fetch("https://frontend-backend-wr79.onrender.com/api/branches", {
       credentials: "include",
     })
       .then((res) => {
@@ -39,8 +39,8 @@ const Sucursales = () => {
     console.log("Formulario a enviar:", form);
 
     const url = editandoId
-      ? `http://localhost:4000/api/branches/${editandoId}`
-      : "http://localhost:4000/api/branches";
+      ? `https://frontend-backend-wr79.onrender.com/api/branches/${editandoId}`
+      : "https://frontend-backend-wr79.onrender.com/api/branches";
 
     const method = editandoId ? "PUT" : "POST";
 
@@ -68,7 +68,7 @@ const Sucursales = () => {
   };
 
   const eliminarSucursal = async (id) => {
-    await fetch(`http://localhost:4000/api/branches/${id}`, {
+    await fetch(`https://frontend-backend-wr79.onrender.com/api/branches/${id}`, {
       method: "DELETE",
       credentials: "include",
     });

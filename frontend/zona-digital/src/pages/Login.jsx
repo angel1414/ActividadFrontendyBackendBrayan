@@ -10,10 +10,10 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-    const res = await fetch("http://localhost:4000/api/login", {
+    const res = await fetch("https://frontend-backend-wr79.onrender.com/api/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    credentials: "include", // ✅ Esta línea permite guardar la cookie
+    credentials: "include", 
    body: JSON.stringify({ email, password })
 });
 
