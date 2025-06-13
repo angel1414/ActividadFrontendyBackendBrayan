@@ -13,9 +13,19 @@ import registerCliente from "./src/routes/registerClients.js";
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js";
 import providersRoutes from "./src/routes/providers.js";
 
+
 import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
 
+import swaggerUi from "swagger-ui-express";
+import fs from "fs";
+import path from "path";
+
 const app = express();
+
+//Traemos el archivo json
+const swaggerDocument = JSON.parse(
+  fs.readFileSync(path.resolve("./DocumentacionZonaDigital.json"), "utf-8")
+);
 
 // Middleware de CORS
 app.use(
@@ -41,5 +51,8 @@ app.use("/api/logout", logoutRouter);
 app.use("/api/registerClients", registerCliente);
 app.use("/api/recoveryPassword", recoveryPasswordRoutes);
 app.use("/api/providers", validateAuthToken(["admin"]), providersRoutes);
+
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 export default app;
