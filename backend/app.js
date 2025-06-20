@@ -12,6 +12,7 @@ import logoutRouter from "./src/routes/logout.js";
 import registerCliente from "./src/routes/registerClients.js";
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js";
 import providersRoutes from "./src/routes/providers.js";
+import salesRoutes from "./src/routes/sales.js";
 
 
 import { validateAuthToken } from "./src/middlewares/validateAuthToken.js";
@@ -54,5 +55,8 @@ app.use("/api/providers", validateAuthToken(["admin"]), providersRoutes);
 
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+
+app.use("/api/sales",salesRoutes);
 
 export default app;
